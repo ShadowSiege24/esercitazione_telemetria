@@ -13,4 +13,26 @@
         $pacchetti_persi++;
     }
   }
+
+  $somma_ping = 0;
+  $max_ping = $ping_validi[0];
+  $min_ping = $ping_validi[0];
+  $ping_critici = [];
+
+  foreach($ping_validi : $ping){
+    $somma_ping += $ping;
+
+    if($ping > $max_ping){
+        $max_ping = $ping;
+    }
+    if($ping < $min_ping){
+        $min_ping = $ping;
+    }
+
+    if($ping > 150){
+        $ping_critici[] = $ping;
+    }
+  }
+
+  $media_ping = round($somma_ping / count($ping_validi), 2);
 ?>
