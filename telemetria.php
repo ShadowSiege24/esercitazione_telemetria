@@ -35,4 +35,11 @@
   }
 
   $media_ping = round($somma_ping / count($ping_validi), 2);
+
+  $ping_unici = array_unique($ping_validi);
+  $ping_ordinati = $ping_validi;
+  sort($ping_ordinati);
+
+  $top_3_veloci = array_slice($ping_ordinati, 0, 2);
+  $controllo_100ms = in_array(100, $ping_validi) ? "Si" : "No";
 ?>
